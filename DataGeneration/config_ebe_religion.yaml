@@ -1,0 +1,5 @@
+model: meta-llama/Meta-Llama-3-8B-Instruct
+prompt_data_path: ../Data/ebe_religion_prompts.csv
+storage_path: ../Data/ebe_religion_response.csv
+template_version: ebe
+response_processor_version: ebe

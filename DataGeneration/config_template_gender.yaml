@@ -1,0 +1,5 @@
+model: meta-llama/Meta-Llama-3-8B-Instruct
+prompt_data_path: ../Data/gender_prompts.csv
+storage_folder_path: ../Data/Storage_llama3_gender/
+template_version: base
+response_processor_version: base
