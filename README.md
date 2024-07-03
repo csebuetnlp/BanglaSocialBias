@@ -117,24 +117,28 @@ We find significant bias in the case of both gender and religion in two probing 
 
 ## Bias in Role Selection for Multiple LLMs
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <div style="flex: 0 0 48%;">
-        <img src="Figures/template_gender_positive.png" alt="DI Scores for Gender Bias (Positive Traits)" style="width: 100%;">
-        <p style="text-align: center;">DI Scores for Gender Bias (Positive Traits)</p>
-    </div>
-    <div style="flex: 0 0 48%;">
-        <img src="Figures/template_gender_negative.png" alt="DI Scores for Gender Bias (Negative Traits)" style="width: 100%;">
-        <p style="text-align: center;">DI Scores for Gender Bias (Negative Traits)</p>
-    </div>
-    <div style="flex: 0 0 45%;">
-        <img src="Figures/template_religion_positive.png" alt="DI Scores for Religious Bias (Positive Traits)" style="width: 100%;">
-        <p style="text-align: center;">DI Scores for Religious Bias (Positive Traits)</p>
-    </div>
-    <div style="flex: 0 0 45%;">
-        <img src="Figures/template_religion_negative.png" alt="DI Scores for Religious Bias (Negative Traits)" style="width: 100%;">
-        <p style="text-align: center;">DI Scores for Religious Bias (Negative Traits)</p>
-    </div>
-</div>
+<table>
+  <tr>
+    <td>
+      <img src="Figures/template_gender_positive.png" alt="DI Scores for Gender Bias (Positive Traits)" style="width:100%;">
+      <p>DI Scores for Gender Bias (Positive Traits)</p>
+    </td>
+    <td>
+      <img src="Figures/template_gender_negative.png" alt="DI Scores for Gender Bias (Negative Traits)" style="width:100%;">
+      <p>DI Scores for Gender Bias (Negative Traits)</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="Figures/template_religion_positive.png" alt="DI Scores for Religious Bias (Positive Traits)" style="width:100%;">
+      <p>DI Scores for Religious Bias (Positive Traits)</p>
+    </td>
+    <td>
+      <img src="Figures/template_religion_negative.png" alt="DI Scores for Religious Bias (Negative Traits)" style="width:100%;">
+      <p>DI Scores for Religious Bias (Negative Traits)</p>
+    </td>
+  </tr>
+</table>
 
 *Figure: Bias in role selection for multiple LLMs in the case of template-based probing for gender and religion data. We present positive and negative traits results separately. The upper bound is set to 3 and 4 for gender and religion respectively. The neutral line (DI = 1) is highlighted in all the figures.*
 
