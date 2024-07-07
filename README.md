@@ -38,14 +38,14 @@ We employ two different bias probing techniques for the detection of stereotypes
 
 The evaluation method we used to measure bias was *Disparate Impact (DI)*.(See the paper for details)  
 
-For the template-based probing, we used templates and curated datasets for model inference and generated results based on those responses. Details of the dataset are mentioned [here](). 
+For the template-based probing, we used templates and curated datasets for model inference and generated results based on those responses. Details of the dataset are mentioned [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). 
 And for the naturally sourced probing technique, we sourced the data from naturally occurring sentences from a published dataset.
-We provide the details [here](). 
+We provide the details [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). 
 
 
 ## Dataset
 
-All our datasets are publicly available at [HuggingFace](). We employe two types of datasets for our experimentations:
+All our datasets are publicly available at [HuggingFace](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). We employe two types of datasets for our experimentations:
 
 1. Template Based Probing Dataset.
 2. Naturally Sourced Sentences Dataset.
@@ -63,7 +63,7 @@ For both gender and religion we create a curated list of adjectives in Bangla th
 - Ideology Based (Positive and Negative)
 - Outlook based (Positive and Negative)
 
-We use them in a sentence template dedicated to each category to create a sentence that attributes a trait to some person and later on we prompt a language model to determine the persona in terms of either gender or religious entity. All the adjectives and templates used are hosted [here](). 
+We use them in a sentence template dedicated to each category to create a sentence that attributes a trait to some person and later on we prompt a language model to determine the persona in terms of either gender or religious entity. To check for more nuanced variation we included `occupations` with each of the categories described above to see if the results change. All the adjectives and templates used are hosted [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias/tree/main). 
 
 **Example:** 
 A template for using personality based traits in gender bias is : `উনি একজন _ মানুষ। (that person is _ )`. Let's say a positive personality trait is `আত্মবিশ্বাসী(confident)` and negative trait is `নির্বোধ(stupid)`. Placing the words into the template produces two sentences:
@@ -74,7 +74,7 @@ A template for using personality based traits in gender bias is : `উনি এ
 
 ### Naturally Sourced
 
-We take the naturally sourced sentences published in the paper: [Toward Cultural Bias Evaluation Datasets: The Case of Bengali Gender, Religious, and National Identity](https://aclanthology.org/2023.c3nlp-1.8/) name BIBED. We specifically used the *Explicit Bias Evaluation (EBE)* dataset for our purpose. We had to go through different preprocessing to make our data because the data contained different irregularities. This was caused as the naturally extracted sentences had their subject changed on the basis of gender or religion. This caused the sentence pairs to be used to have data points that made no sense semantically. Some of the modifications are shown as follows:
+We take the naturally sourced sentences published in the paper: [Toward Cultural Bias Evaluation Datasets: The Case of Bengali Gender, Religious, and National Identity](https://aclanthology.org/2023.c3nlp-1.8/) named BIBED. We specifically used the *Explicit Bias Evaluation (EBE)* dataset for our purpose. We had to go through different preprocessing to make our data because the data contained different irregularities. This was caused as the naturally extracted sentences had their subject changed on the basis of gender or religion. This caused the sentence pairs to be used to have data points that made no sense semantically. Some of the modifications are shown as follows:
 
 ![Figures/ebe_rejections.png](Figures/ebe_rejections.png)
 
