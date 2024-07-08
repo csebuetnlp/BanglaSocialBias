@@ -1,6 +1,6 @@
 # BanglaSocialBias
 
-This is the official repository containing codes and directions to generate the results reported in the paper titled **"Social Bias in Large Language Models For Bangla: An Empirical Study on Gender and Religious Bias"**. This study mainly focuses on gender and religious bias in Bangla in the domain of multilingual Large Language Models.
+This is the official repository containing codes and directions to generate the results reported in the paper titled **"[Social Bias in Large Language Models For Bangla: An Empirical Study on Gender and Religious Bias](https://arxiv.org/abs/2407.03536)"**. This study mainly focuses on gender and religious bias in Bangla in the domain of multilingual Large Language Models.
 
 ## Table of Contents
 - [BanglaSocialBias](#banglasocialbias)
@@ -40,7 +40,7 @@ The evaluation method we used to measure bias was *Disparate Impact (DI)*.(See t
 
 For the template-based probing, we used templates and curated datasets for model inference and generated results based on those responses. Details of the dataset are mentioned [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). 
 And for the naturally sourced probing technique, we sourced the data from naturally occurring sentences from a published dataset.
-We provide the details [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). 
+We provide the details [here](https://arxiv.org/abs/2407.03536). 
 
 
 ## Dataset
@@ -113,7 +113,7 @@ $ python executor.py --config [config_file_name] --data_handler [data handler na
 
 The codes for result generation from the responses can be found in `GraphGeneration/FileAnalysis.ipynb`
 
-We find significant bias in the case of both gender and religion in two probing techniques, which are outlined in detail in the paper.
+We find significant bias in the case of both gender and religion in two probing techniques, which are outlined in detail in the [paper](https://arxiv.org/abs/2407.03536).
 
 ## Bias in Role Selection for Multiple LLMs
 
@@ -151,7 +151,15 @@ Contents of this repository are restricted to non-commercial research purposes o
 ## Citation
 If you use any of the datasets or code modules or use our work as a reference, please cite the following paper:
 ```
-To Be Added
+@misc{sadhu2024socialbiaslargelanguage,
+      title={Social Bias in Large Language Models For Bangla: An Empirical Study on Gender and Religious Bias}, 
+      author={Jayanta Sadhu and Maneesha Rani Saha and Rifat Shahriyar},
+      year={2024},
+      eprint={2407.03536},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2407.03536}, 
+}
 ```
 
 
