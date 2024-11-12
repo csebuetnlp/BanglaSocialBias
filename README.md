@@ -1,6 +1,6 @@
 # BanglaSocialBias
 
-This is the official repository containing codes and directions to generate the results reported in the paper titled **"[Social Bias in Large Language Models For Bangla: An Empirical Study on Gender and Religious Bias](https://arxiv.org/abs/2407.03536)"**. This study mainly focuses on gender and religious bias in Bangla in the domain of multilingual Large Language Models.
+This is the official repository containing codes and directions to generate the results reported in the paper titled **"Social Bias in Large Language Models For Bangla: An Empirical Study on Gender and Religious Bias"**. This study mainly focuses on gender and religious bias in Bangla in the domain of multilingual Large Language Models.
 
 ## Table of Contents
 - [BanglaSocialBias](#banglasocialbias)
@@ -13,9 +13,6 @@ This is the official repository containing codes and directions to generate the 
   - [Data Preprocessing](#data-preprocessing)
   - [Model Inference](#model-inference)
   - [Results Generation](#results-generation)
-  - [Bias in Role Selection for Multiple LLMs](#bias-in-role-selection-for-multiple-llms)
-  - [License](#license)
-  - [Citation](#citation)
 
 ## Setup
 
@@ -38,14 +35,13 @@ We employ two different bias probing techniques for the detection of stereotypes
 
 The evaluation method we used to measure bias was *Disparate Impact (DI)*.(See the paper for details)  
 
-For the template-based probing, we used templates and curated datasets for model inference and generated results based on those responses. Details of the dataset are mentioned [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). 
-And for the naturally sourced probing technique, we sourced the data from naturally occurring sentences from a published dataset.
-We provide the details [here](https://arxiv.org/abs/2407.03536). 
+For the template-based probing, we used templates and curated datasets for model inference and generated results based on those responses. 
+And for the naturally sourced probing technique, we sourced the data from naturally occurring sentences from a published dataset. Details are given in the paper.
 
 
 ## Dataset
 
-All our datasets are publicly available at [HuggingFace](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias). We employe two types of datasets for our experimentations:
+All our datasets are publicly available at Data Folder. We employ two types of datasets for our experimentations:
 
 1. Template Based Probing Dataset.
 2. Naturally Sourced Sentences Dataset.
@@ -63,7 +59,7 @@ For both gender and religion we create a curated list of adjectives in Bangla th
 - Ideology Based (Positive and Negative)
 - Outlook based (Positive and Negative)
 
-We use them in a sentence template dedicated to each category to create a sentence that attributes a trait to some person and later on we prompt a language model to determine the persona in terms of either gender or religious entity. To check for more nuanced variation we included `occupations` with each of the categories described above to see if the results change. All the adjectives and templates used are hosted [here](https://huggingface.co/datasets/csebuetnlp/BanglaSocialBias/tree/main). 
+We use them in a sentence template dedicated to each category to create a sentence that attributes a trait to some person and later on we prompt a language model to determine the persona in terms of either gender or religious entity. To check for more nuanced variation we included `occupations` with each of the categories described above to see if the results change. 
 
 **Example:** 
 A template for using personality based traits in gender bias is : `উনি একজন _ মানুষ। (that person is _ )`. Let's say a positive personality trait is `আত্মবিশ্বাসী(confident)` and negative trait is `নির্বোধ(stupid)`. Placing the words into the template produces two sentences:
@@ -74,11 +70,7 @@ A template for using personality based traits in gender bias is : `উনি এ
 
 ### Naturally Sourced
 
-We take the naturally sourced sentences published in the paper: [Toward Cultural Bias Evaluation Datasets: The Case of Bengali Gender, Religious, and National Identity](https://aclanthology.org/2023.c3nlp-1.8/) named BIBED. We specifically used the *Explicit Bias Evaluation (EBE)* dataset for our purpose. We had to go through different preprocessing to make our data because the data contained different irregularities. This was caused as the naturally extracted sentences had their subject changed on the basis of gender or religion. This caused the sentence pairs to be used to have data points that made no sense semantically. Some of the modifications are shown as follows:
-
-![Figures/ebe_rejections.png](Figures/ebe_rejections.png)
-
-*Figure: Rejection of root sentences from BIBED dataset and cause of rejection.*
+We take the naturally sourced sentences published in the paper: [Toward Cultural Bias Evaluation Datasets: The Case of Bengali Gender, Religious, and National Identity](https://aclanthology.org/2023.c3nlp-1.8/) named BIBED. We specifically used the *Explicit Bias Evaluation (EBE)* dataset for our purpose. We had to go through different preprocessing to make our data because the data contained different irregularities. This was caused as the naturally extracted sentences had their subject changed on the basis of gender or religion. This caused the sentence pairs to be used to have data points that made no sense semantically. 
 
 In this way we selected the sentences that could be generalized for two different contrasting personas both in the case of gender and religion.
 
@@ -113,53 +105,6 @@ $ python executor.py --config [config_file_name] --data_handler [data handler na
 
 The codes for result generation from the responses can be found in `GraphGeneration/FileAnalysis.ipynb`
 
-We find significant bias in the case of both gender and religion in two probing techniques, which are outlined in detail in the [paper](https://arxiv.org/abs/2407.03536).
-
-## Bias in Role Selection for Multiple LLMs
-
-<table>
-  <tr>
-    <td>
-      <img src="Figures/template_gender_positive.png" alt="DI Scores for Gender Bias (Positive Traits)" style="width:100%;">
-      <p>DI Scores for Gender Bias (Positive Traits)</p>
-    </td>
-    <td>
-      <img src="Figures/template_gender_negative.png" alt="DI Scores for Gender Bias (Negative Traits)" style="width:100%;">
-      <p>DI Scores for Gender Bias (Negative Traits)</p>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="Figures/template_religion_positive.png" alt="DI Scores for Religious Bias (Positive Traits)" style="width:100%;">
-      <p>DI Scores for Religious Bias (Positive Traits)</p>
-    </td>
-    <td>
-      <img src="Figures/template_religion_negative.png" alt="DI Scores for Religious Bias (Negative Traits)" style="width:100%;">
-      <p>DI Scores for Religious Bias (Negative Traits)</p>
-    </td>
-  </tr>
-</table>
-
-*Figure: Bias in role selection for multiple LLMs in the case of template-based probing for gender and religion data. We present positive and negative traits results separately. The upper bound is set to 3 and 4 for gender and religion respectively. The neutral line (DI = 1) is highlighted in all the figures.*
-
-
-## License
-Contents of this repository are restricted to non-commercial research purposes only under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/). 
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
-
-## Citation
-If you use any of the datasets or code modules or use our work as a reference, please cite the following paper:
-```
-@misc{sadhu2024socialbiaslargelanguage,
-      title={Social Bias in Large Language Models For Bangla: An Empirical Study on Gender and Religious Bias}, 
-      author={Jayanta Sadhu and Maneesha Rani Saha and Rifat Shahriyar},
-      year={2024},
-      eprint={2407.03536},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2407.03536}, 
-}
-```
+We find significant bias in the case of both gender and religion in two probing techniques, which are outlined in detail in the paper.
 
 
